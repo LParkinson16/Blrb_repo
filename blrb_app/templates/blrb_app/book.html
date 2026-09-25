@@ -1,0 +1,32 @@
+{% extends 'blrb_app/base.html' %}
+
+{% block page_header %}
+<h1>Review</h1>
+{% endblock page_header %}
+
+{% block content %}
+<a href="{% url 'blrb_app:book_list' %}" class="btn btn-outline-secondary">Back</a>
+<a href="{% url 'blrb_app:book_list' %}" class="btn btn-outline-secondary">&laquo; Last book</a>
+<a href="{% url 'blrb_app:book_list' %}" class="btn btn-outline-secondary">Next book &raquo;</a>
+
+
+<div class="card mb-3">
+    <div class="card-header text-start">
+        <img height="200"
+            src="https://wallpapers.com/images/hd/red-leather-blank-book-cover-ja6121mqrx4crxz2-ja6121mqrx4crxz2.jpg"
+            alt="Book tumbnail">
+        <h4>{{book.title}}</h4>
+    </div>
+    <small>
+        {% if not book.review %}
+        <a href="{% url 'blrb_app:new_review' book.id %}" class="nav-link">Add review</a>
+        {% else %}
+        <a href="{% url 'blrb_app:edit_review' book.id %}" class="btn btn-primary btn-sm">Edit review</a>
+        <a href="{% url 'blrb_app:delete_review' book.id %}" class="btn btn-danger btn-sm">Delete review</a>
+        {% endif %}
+        <a href="{% url 'blrb_app:delete_book' book.id %}" class="btn btn-danger btn-sm">Delete book</a>
+    </small>
+    <div class="card-body">{{book.review}}</div>
+</div>
+
+{% endblock content %}

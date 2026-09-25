@@ -1,0 +1,31 @@
+{% extends 'blrb_app/base.html' %}
+
+{% block page_header %}
+<h1>Browse books</h1>
+{% endblock page_header %}
+
+{% block content %}
+<h2>Got a book to review?</h2>
+<hr>
+
+<section class="text-center mb-2">
+    <div class="container">
+        <div class="row">
+            {% for book in browse_results.results.title %}
+            <div class="col-md-2">
+                <a href="" class="text-reset" style="text-decoration: none;">
+                    <div class="card">
+                        <img src="https://wallpapers.com/images/hd/red-leather-blank-book-cover-ja6121mqrx4crxz2-ja6121mqrx4crxz2.jpg"
+                            alt="Book tumbnail">
+                    </div>
+                    <small>
+                        <p>{{book.title}}</p>
+                    </small>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,12 @@
+{% extends 'blrb_app/base.html' %}
+
+{% block content %}
+<a href="{% url 'blrb_app:book' book.id %}" class="btn btn-danger">Cancel</a>
+<a href="{% url 'blrb_app:new_review' book.id %}">{{Book.title}}</a>
+<h2>Edit a review:</h2>
+<form action="{% url 'blrb_app:edit_review' book.id %}" method="post">
+    {% csrf_token %}
+    {{form.as_div}}
+    <button name="submit">save changes</button>
+</form>
+{% endblock content %}

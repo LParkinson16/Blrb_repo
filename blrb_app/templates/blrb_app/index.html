@@ -1,0 +1,11 @@
+{% extends 'blrb_app/base.html' %}
+
+{% block page_header %}
+<div class="p-3 bg-light border rounded-3">
+    <div class="container-fluid py-4">
+        <h1 class="display-3">Welcome to Blrb</h1>
+        <p>Finished a new book? Re-read one of your faves? Share your thoughts</p>
+        <a href="{% url 'accounts:register' %}" class="btn btn-primary btn-lg mt-1">Register &raquo;</a>
+    </div>
+</div>
+{% endblock page_header %}

@@ -1,0 +1,15 @@
+{% extends 'blrb_app/base.html' %}
+
+{% block page_header %}
+<h1>Add a new book</h1>
+{% endblock page_header %}
+
+{% block content %}
+
+<form action="{% url 'blrb_app:new_book' %}" method="post">
+    {% csrf_token %}
+    {{form.as_div}}
+    <button name="submit">Add book</button>
+</form>
+
+{% endblock content %}

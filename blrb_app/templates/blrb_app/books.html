@@ -1,0 +1,40 @@
+{% extends 'blrb_app/base.html' %}
+
+{% block page_header %}
+<h1>Your books</h1>
+{% endblock page_header %}
+
+{% block content %}
+<h4>Read sometheing new?</h4>
+<h4><a href="{% url 'blrb_app:new_book'%}">Add book</a></h4>
+<hr>
+
+<section class="text-center mb-2">
+    <div class="container">
+        <div class="row">
+            {% for book in books %}
+            <div class="col-md-2">
+                <a href="{% url 'blrb_app:book' book.id %}" class="text-reset" style="text-decoration: none;">
+                    <div class="card">
+                        <img src="https://wallpapers.com/images/hd/red-leather-blank-book-cover-ja6121mqrx4crxz2-ja6121mqrx4crxz2.jpg"
+                            alt="Book tumbnail">
+                        <!-- <div class="card-body">
+                    </div> -->
+                    </div>
+                    <small>
+                        <p>{{book.title}}</p>
+                        <!-- <p class="card-text">*Rating*</p> -->
+                    </small>
+                </a>
+            </div>
+
+            {% empty %}
+            <h4 class="list-group-item border-0">
+                No books have been reviewed yet
+                <a href="{% url 'blrb_app:new_book' %}">Add book</a>
+            </h4>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock content %}
