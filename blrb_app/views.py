@@ -116,11 +116,11 @@ def search(req):
     return render(req, path, context)
 
 # API for book selection/browsing
-def browse(req):
-    try :
-        browse_results = requests.get('')
-    except:
-        return browse_results.status_code
-    path = 'blrb_app/browse.html'
-    context = {'browse_results': browse_results}
-    return render(req, path, context)
+# def browse(req):
+#     try :
+#         browse_results = requests.get('')
+#     except:
+#         return browse_results.status_code
+#     path = 'blrb_app/browse.html'
+#     context = {'browse_results': browse_results}
+#     return render(req, path, context)

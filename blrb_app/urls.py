@@ -17,5 +17,5 @@ urlpatterns = [
     path('user_profile/', views.user_profile, name='user_profile'),
     path('search/', views.search, name='search'),
     # API integration
-    path('browse/', views.browse, name='browse_books'),
+    # path('browse/', views.browse, name='browse_books'),
 ]
